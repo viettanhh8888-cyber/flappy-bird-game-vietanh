@@ -59,12 +59,11 @@ function update() {
     requestAnimationFrame(update);
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    // --- VẼ CHỮ VIETANH MÀU TÍM Ở NỀN XANH ---
-    ctx.fillStyle = "#8a2be2"; // Màu tím (BlueViolet)
-    ctx.font = "bold 45px Arial";
+    // 1. CHỮ NỀN "vietanh" MÀU TÍM (Đưa lên cao, thoáng nền)
+    ctx.fillStyle = "#8a2be2";
+    ctx.font = "bold 40px Arial";
     ctx.textAlign = "center";
-    ctx.fillText("vietanh", canvas.width / 2, canvas.height / 2);
-    ctx.textAlign = "left"; // Căn lề lại về bên trái cho điểm số
+    ctx.fillText("vietanh", canvas.width / 2, canvas.height / 2 - 80);
 
     // Vẽ & Cập nhật Chim (Đỏ)
     bird.velocityY += bird.gravity;
@@ -100,18 +99,23 @@ function update() {
         }
     }
 
-    // Hiển thị Điểm & Game Over
+    // 2. ĐIỂM SỐ
     ctx.fillStyle = "white";
     ctx.font = "bold 20px Arial";
+    ctx.textAlign = "left";
     ctx.fillText("Điểm: " + Math.floor(score), 15, 35);
 
+    // 3. THÔNG BÁO GAME OVER (Kéo xuống dưới thoáng hẳn)
     if (gameOver) {
+        ctx.textAlign = "center";
+        
         ctx.fillStyle = "red";
-        ctx.font = "bold 26px Arial";
-        ctx.fillText("GAME OVER", 100, 300);
+        ctx.font = "bold 32px Arial";
+        ctx.fillText("GAME OVER", canvas.width / 2, canvas.height / 2 + 30);
+
         ctx.fillStyle = "white";
         ctx.font = "18px Arial";
-        ctx.fillText("Nhấn Space để chơi lại", 90, 340);
+        ctx.fillText("Nhấn Space để chơi lại", canvas.width / 2, canvas.height / 2 + 75);
     }
 }
 
