@@ -59,7 +59,7 @@ function update() {
     requestAnimationFrame(update);
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    // 1. CHỮ NỀN "vietanh" MÀU TÍM (Đưa lên cao, thoáng nền)
+    // 1. CHỮ NỀN "vietanh" MÀU TÍM (Đưa lên cao hẳn)
     ctx.fillStyle = "#8a2be2";
     ctx.font = "bold 40px Arial";
     ctx.textAlign = "center";
@@ -105,7 +105,7 @@ function update() {
     ctx.textAlign = "left";
     ctx.fillText("Điểm: " + Math.floor(score), 15, 35);
 
-    // 3. THÔNG BÁO GAME OVER (Kéo xuống dưới thoáng hẳn)
+    // 3. THÔNG BÁO GAME OVER (Kéo xuống dưới hẳn)
     if (gameOver) {
         ctx.textAlign = "center";
         
